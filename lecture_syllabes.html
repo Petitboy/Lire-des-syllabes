@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="lecture_syllabes.css" rel="stylesheet" type="text/css">
+        <title>Lire les lettres et les syllabes</title>
+    </head>
+
+<body>
+	<header class="titre" style="display: flex; justify-Content: space-evenly;">
+		<div><h1>Lire des Syllabes</div>
+		<div><h1><a href="http://lire.au.cp.free.fr/francais/lire/lire_des_syllabes.ods" target="_blank" class="w3-button">FICHES</a></div>
+	</header>
+	
+	<main>
+		
+		<div id="mixButtons">
+			<form>
+				<label></label>
+				<select name="progression" id="progression">
+					<option>Progression</option>
+					<option value="1aeiou">1 - a e i o u </option>
+					<option value="2laeiou">2 - l + a e i o u </option>
+					<option value="3raeiou">3 - r + a e i o u </option>
+					<option value="4faeiou">4 - f + a e i o u </option>
+					<option value="5jaeiou">5 - j + a e i o u </option>
+					<option value="6maeiou">6 - m + a e i o u </option>
+					<option value="7naeiou">7 - n + a e i o u </option>
+				</select>
+			</form>
+			
+			<button onclick="melanger(graphemes, affichageMelange)">Mélanger les graphèmes</button>
+			<button onclick="melangerSyllabes(graphemeVoyelles, graphemeConsonnes, affichageMelange)">Mélanger les syllabes</button>
+			<div id="syllablesOrder" style="display: flex;">
+				<div>
+					<input id="radioButton1" type="radio" checked name="orderType">
+					<label for="radioButton1">Normal</label>
+				</div>
+				<div>
+					<input id="radioButton2" type="radio" name="orderType">
+					<label for="radioButton2">Inversé</label>
+				</div>
+				<div>
+					<input id="radioButton3" type="radio" name="orderType">
+					<label for="radioButton3">Mixte</label>
+				</div>
+			</div>
+			<button onclick="lireDeuxSyllabes(graphemeVoyelles, graphemeConsonnes, affichageMelange)">Lire deux syllabes</button>
+			<button onclick="lireTroisSyllabes(graphemeVoyelles, graphemeConsonnes, affichageMelange)">Lire trois syllabes</button>
+			<button onclick="reset()">Mise à zéro</button>
+			
+		</div>
+		
+		<div id="parametres">
+			
+			<div id="voyelles">
+				<h3 style="text-align: center">Voyelles</h3>
+				<div id="voyelles_une_lettre">
+					<div id="CHKV1"></div>
+					<button class="allNone" onclick="selectAll('uneLettre', baseVoyellesUneLettre, graphemeVoyelles, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('uneLettre', baseVoyellesUneLettre, graphemeVoyelles, graphemes)" class="boutonAucun">Aucun</button>
+				</div>
+				
+				<div id="voyelles_deux_lettres">
+					<div id="CHKV2"></div>
+					<button class="allNone" onclick="selectAll('deuxLettres', baseVoyellesDeuxLettres, graphemeVoyelles, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('deuxLettres', baseVoyellesDeuxLettres, graphemeVoyelles, graphemes)" class="boutonAucun">Aucun</button>
+				</div>
+				
+				<div id="voyelles_trois_lettres">
+					<div id="CHKV3"></div>
+					<button class="allNone" onclick="selectAll('troisLettres', baseVoyellesTroisLettres, graphemeVoyelles, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('troisLettres', baseVoyellesTroisLettres, graphemeVoyelles, graphemes)" class="boutonAucun">Aucun</button>
+				</div>
+				
+				<div id="voyelles_quatre_lettres">
+					<div id="CHKV4"></div>
+					<button class="allNone" onclick="selectAll('quatreLettres', baseVoyellesQuatreLettres, graphemeVoyelles, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('quatreLettres', baseVoyellesQuatreLettres, graphemeVoyelles, graphemes)" class="boutonAucun">Aucun</button>
+				</div>
+				
+			</div>
+			
+			<div id="consonnes">
+				<h3 style="text-align: center">Consonnes</h3>
+				<div id="consonnes_une_lettre">
+					<div id="CHKC1"></div>
+					<button class="allNone" onclick="selectAll('uneCons', baseConsonnesUneLettre, graphemeConsonnes, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('uneCons', baseConsonnesUneLettre, graphemeConsonnes, graphemes)" class="boutonAucun">Aucun</button>
+				</div>
+				
+				<div id="consonnes_deux_lettres">
+					<div id="CHKC2"></div>
+					<button class="allNone" onclick="selectAll('deuxCons', baseConsonnesDeuxLettres, graphemeConsonnes, graphemes)" class="boutonTous">Tous</button>
+					<button class="allNone" onclick="selectNone('deuxCons', baseConsonnesDeuxLettres, graphemeConsonnes, graphemes)" class="boutonAucun">Aucun</button>
+				</div>			
+			</div>
+		</div>		
+		
+		
+		
+		<p id="affichage-melange"></p>
+		
+	</main>	
+						
+	<script src="lecture_syllabes.js"></script>
+</body>
+
+</html>
